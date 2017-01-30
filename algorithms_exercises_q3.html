@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Algorithms exercises</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+	//Question 3
+
+	var table = [];
+	var fib = [];
+
+	fib[0] = 0;
+	fib[1] = 1;
+
+	for(var i = 2; i <= 200; i++){
+		fib[i] = fib[i - 2] + fib[i-1];
+		//console.log(fib[i]);
+		var temp = fib[i];
+		if (temp % 2 !== 0){
+			if (temp < 2000000){
+				table.push(temp);
+			}
+		}
+	}
+	var sum = 0;
+	for (var i = 0; i < table.length; i++) {
+		sum = sum + table[i];
+	}
+
+	console.log(sum);
+
+</script>
+</body>
+</html>

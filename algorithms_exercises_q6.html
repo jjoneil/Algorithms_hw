@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Algorithms exercise #6</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+	//NUMBER_6
+
+	var instruction = prompt("Welcome to the game! Please obey capitalization in prompts.")
+
+	var player = [true, "East", "noShield"]
+
+	//first decision from East room starting point
+
+	while(player[1] === "East" && player[0] === true) {
+		var choice = prompt("East room. There is an exit to the North (type 'North') and to the West. (type 'West')")
+		if(choice === "North"){
+			player.splice(1, 1, "North");
+
+		} else if (choice === "West"){
+			player.splice(1, 1, "West");
+
+		} else if (choice !== "West" || choice !== "North") {
+			prompt("Please enter 'West' or 'North'. Type 'OK' to try again.");
+		}
+	}
+
+	//West Room
+
+	while(player[1] === "West" && player[0] === true){
+		prompt("There's a shiny shield in the corner. Pretty. Type 'OK'.");
+		var choice = prompt(" Type 'Take' or 'Leave' to take or leave shield.");
+		if(choice === "Take"){
+			player.splice(2, 1, "shield");
+			player.splice(1, 1, "North");
+			prompt("You have a sheild! Type 'OK' to  continue go North'.")
+		} else if (choice === "Leave") {
+			player.splice(1, 1, "North");
+			prompt("You left the shield. Type 'OK' to continue North");
+		}
+	}
+
+	//North Room
+
+	while(player[1] === "North" && player[0] === true){
+		var choice = prompt("DRAGON! AH! Run back or Fight!")
+		if(choice === "Run"){
+			prompt("You escaped to the East Room. Type 'Ok' and Refresh to start again.");
+			player.splice(1, 1, "East");
+		} else if (choice === "Fight" && player[2] === "shield"){
+			player.splice(1, 1, "North win");
+			prompt("You beat the dragon! Type 'OK' to move on.");
+		} else if (choice === "Fight" && player[2] === "noShield") {
+			player.splice(0, 1, false);
+			prompt("No shield! The dragon ate you! Hit Refresh to Start Over")
+		} 
+	}
+
+	// //While for state of defeating dragon == player[1] === "North win"
+
+	while(player[1] === "North win" && player[0] === true){
+		prompt("Great job, Sir knight. Hit OK to claim your riches and your victory")
+		choice = prompt("YOU WIN THE GAME. Type 'OK' to play again or Type 'DONE' to exit.")
+	} if (choice === "OK") {
+		player.splice(1, 1, "East");
+	} else if (choice === "Done") {
+		player.splice(0, 1, false);
+	};
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Algorithms exercises</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+	//number 5
+
+	compList = [1]
+
+	prompt("Guess a number between 1-100. Then Type anything to continue.")
+
+	for(i=0; i <= 100; i++){
+		compList.push(i);
+		compGuess = parseInt(compList[i] * Math.random());
+	};
+
+	var userAnswer1 = prompt("Is " + compGuess + " your number? Type 'Yes' or 'No'.");
+
+	var userAnswer2 = "No"
+
+	if(userAnswer1 === "Yes" || userAnswer2 === "Yes"){
+		prompt("Yay computers are smart!");
+	};
+
+	while(userAnswer1 === "No"){
+		var userAnswer2 = prompt("Is that high (type 'H') or low? (type 'L') ")
+		if(userAnswer2 === "H"){
+			for(i=50; i <= compList.length; i++){
+				prompt("is " + compList[i] + "your number?");
+			}
+		} else if (userAnswer2 === "L") {
+			for(i=50; i >= compList.length; i-- ){
+				prompt("is " + compList[i] + "your number?");
+				userAnswer1 === "No"
+			}
+		}
+	};
+
+	console.log(compGuess);
+
+	</script>
+</body>
+</html>

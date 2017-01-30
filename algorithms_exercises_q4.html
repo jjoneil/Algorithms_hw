@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Algorithms exercises</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+	//NUMBER 4
+
+	
+	//var user = prompt("Gimme ur number");
+
+	user = "0253697"; //temp to be sure of numbers
+
+	numArray = user.split(""); //splits string into array of strings
+
+
+	for(i=0; i < numArray.length; i++){
+		if((i + 1) % 2 !== 0 && numArray[i] % 2 !== 0){
+			numArray.splice(i, 0, "-");
+		}
+	};
+	
+	console.log(numArray.join());
+
+	</script>
+</body>
+</html>
