@@ -9,32 +9,39 @@
 
 	//number 5
 
-	prompt("Guess a number between 1-100. Type anything or hit 'ok' to continue.")
+	var done = false;
 
-	var min = 1
-	var max = 101
+	alert("Guess a number between 1-100. Type anything or hit 'ok' to continue.")
 
-	var compGuess = (min + max) / 2;
+	while(!done){
+		debugger;
+		var guessed = false
+		var min = 1
+		var max = 101
 
-	var userAnswer = prompt("Is " + compGuess + " your number? if yes. Type 'Yes'. If no, enter 'H' for high or 'L' for low");
+		while(!guessed){
 
-	
-	if(userAnswer === "Yes"){
-		prompt("Yay computers are smart!");
-		userAnswer = true
-	};
+			var compGuess = parseInt((min + max) / 2)
+			//debugger;
 
-	while(userAnswer !== "Yes"){
+			var userAnswer = prompt("Is " + compGuess + " your number? if yes. Type 'Yes'. If no, enter 'H' for high or 'L' for low");
 
-		if(userAnswer === "H"){
-			//max = max / 2
-			prompt("Is " + compGuess + " your number? H or L");
-		} else if (userAnswer === "L") {
-			//min = min * 2
-			prompt("Is " + compGuess + " your number? H or L");
-			}
+			if(userAnswer === "Yes"){
+				alert("Yay! your number is " + compGuess);
+				guessed = true
+			} else if(userAnswer === "H"){
+				max = compGuess
 
+			} else {
+				min = compGuess
+				}
 		}
+
+		var isDone = prompt("Do you want to play again? y/n")
+		if(isDone === 'n') {
+			done = true;
+		}
+	}
 
 	</script>
 </body>
