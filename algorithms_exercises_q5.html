@@ -6,7 +6,6 @@
 </head>
 <body>
 	<script type="text/javascript">
-
 	//number 5
 
 	var done = false;
@@ -14,34 +13,39 @@
 	alert("Guess a number between 1-100. Type anything or hit 'ok' to continue.")
 
 	while(!done){
-		debugger;
+		//debugger;
 		var guessed = false
 		var min = 1
 		var max = 101
 
 		while(!guessed){
 
-			var compGuess = parseInt((min + max) / 2)
-			//debugger;
+			var compGuess = Math.floor(Math.random()*100);
 
-			var userAnswer = prompt("Is " + compGuess + " your number? if yes. Type 'Yes'. If no, enter 'H' for high or 'L' for low");
+			var userAnswer = prompt("Is " + compGuess + " your number? If yes, type 'yes'. If no, enter 'h' for high or 'l' for low");
+				//answers no longer case sensitive
+				userAnswer = userAnswer.toLowerCase();
 
-			if(userAnswer === "Yes"){
+			if(userAnswer == "yes"){
 				alert("Yay! your number is " + compGuess);
-				guessed = true
+				guessed = true;
 			} else if(userAnswer === "H"){
-				max = compGuess
+				max = compGuess;
 
 			} else {
-				min = compGuess
+				min = compGuess;
 				}
-		}
+
+			compGuess = Math.floor(min + ((max - min) / 2));
+			
+		};
 
 		var isDone = prompt("Do you want to play again? y/n")
-		if(isDone === 'n') {
+		isDone = isDone.toLowerCase();
+		if(isDone === "n") {
 			done = true;
 		}
-	}
+	};
 
 	</script>
 </body>

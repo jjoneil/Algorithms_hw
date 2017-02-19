@@ -9,13 +9,13 @@
 
 	//NUMBER_6
 
-	var instruction = alert("Welcome to the game! Please obey capitalization in prompts.")
+	var instruction = alert("Welcome to the game! Please obey capitalization in prompts.");
 
-	var player = [true, "East", "noShield"]
+	var player = [true, "East", "noShield"];
 
 	//first decision from East room starting point
 
-	while(player[1] === "East" && player[0] === true) {
+	while(player[1] === "East" && player[0] === true){
 		var choice = prompt("East room. There is an exit to the North (type 'North') and to the West. (type 'West')")
 		if(choice === "North"){
 			player.splice(1, 1, "North");
@@ -29,7 +29,7 @@
 
 	//West Room
 
-	while(player[1] === "West" && player[0] === true){
+	while(player[1] === "West" && player[0] === true && done === false){
 		alert("There's a shiny shield in the corner. Pretty. Hit 'OK'.");
 		var choice = prompt(" Type 'Take' or 'Leave' to take or leave shield.");
 		if(choice === "Take"){
@@ -55,7 +55,9 @@
 		} else if (choice === "Fight" && player[2] === "noShield") {
 			player.splice(0, 1, false);
 			alert("No shield! The dragon ate you! Hit ok to Start Over")
-		} 
+		} else {
+			alert("You made an incorrent entry! Try Again!");
+		}
 	}
 
 	// //While for state of defeating dragon == player[1] === "North win"
@@ -65,7 +67,7 @@
 		choice = prompt("YOU WIN THE GAME. Type 'OK' to play again or Type 'DONE' to exit.")
 	} if (choice === "OK") {
 		player.splice(1, 1, "East");
-	} else if (choice === "Done") {
+	} else {
 		player.splice(0, 1, false);
 	}
 

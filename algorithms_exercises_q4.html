@@ -8,9 +8,9 @@
     <script type="text/javascript">
     //NUMBER 4
     
-    user = prompt("Gimme me a number with some odds!")
-    numArray = user.split(""); //splits string into array of strings
-    for(i=0; i < numArray.length; i++){
+    var user = prompt("Gimme me a number with some odds!")
+    var numArray = user.split(""); //splits string into array of strings
+    for(var i=0; i < numArray.length; i++){
         if(numArray[i] % 2 === 1 && numArray[i - 1] % 2 === 1){
             numArray.splice(i, 0, "-");
         }
